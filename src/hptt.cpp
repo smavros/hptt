@@ -21,6 +21,7 @@
 #include <memory>
 
 #include <transpose.h>
+#include <chptt.h>
 
 namespace hptt {
 
@@ -155,8 +156,6 @@ std::shared_ptr<hptt::Transpose<DoubleComplex> > create_plan( const int *perm, c
 }
 }
 
-
-extern "C"{
 void sTensorTranspose( const int *perm, const int dim,
                  const float alpha, const float *A, const int *sizeA, const int *outerSizeA, 
                  const float beta,        float *B,                   const int *outerSizeB, 
@@ -196,20 +195,3 @@ void zTensorTranspose( const int *perm, const int dim,
    plan->setConjA(conjA);
    plan->execute();
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

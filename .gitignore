@@ -2,8 +2,10 @@
 *.o
 *.swp
 *.swo
+*.so
 tags
 *.exe
+lib/
 data/
 html/
 latex/

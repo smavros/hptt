@@ -22,6 +22,8 @@ extern "C"
 {
 #endif
 
+#include <stdbool.h>
+
 /**
  * \brief Computes the out-of-place tensor transposition of A into B
  *

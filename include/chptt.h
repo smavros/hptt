@@ -93,6 +93,67 @@ void zTensorTranspose( const int *perm, const int dim,
            double _Complex *B,                   const int *outerSizeB, 
      const int numThreads, const int useRowMajor );
 
+void sTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+     const float alpha, 
+     const float *A, const int *sizeA, const int *outerSizeA, 
+     const float beta,
+           float *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void dTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+     const double alpha, 
+     const double *A, const int *sizeA, const int *outerSizeA, 
+     const double beta,
+           double *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void cTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+     const float _Complex alpha, 
+     bool conjA, 
+     const float _Complex *A, const int *sizeA, const int *outerSizeA, 
+     const float _Complex beta,
+           float _Complex *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void zTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+     const double _Complex alpha, 
+     bool conjA, 
+     const double _Complex *A, const int *sizeA, const int *outerSizeA, 
+     const double _Complex beta,                    
+           double _Complex *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void sTensorTransposeAutoTunePatient( const int *perm, const int dim,
+     const float alpha, 
+     const float *A, const int *sizeA, const int *outerSizeA, 
+     const float beta,
+           float *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void dTensorTransposeAutoTunePatient( const int *perm, const int dim,
+     const double alpha, 
+     const double *A, const int *sizeA, const int *outerSizeA, 
+     const double beta,
+           double *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void cTensorTransposeAutoTunePatient( const int *perm, const int dim,
+     const float _Complex alpha, 
+     bool conjA, 
+     const float _Complex *A, const int *sizeA, const int *outerSizeA, 
+     const float _Complex beta,
+           float _Complex *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+void zTensorTransposeAutoTunePatient( const int *perm, const int dim,
+     const double _Complex alpha, 
+     bool conjA, 
+     const double _Complex *A, const int *sizeA, const int *outerSizeA, 
+     const double _Complex beta,                    
+           double _Complex *B,                   const int *outerSizeB, 
+     const int numThreads, const int useRowMajor );
+
+
 #ifdef __cplusplus
 }
 #endif

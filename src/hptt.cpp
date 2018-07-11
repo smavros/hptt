@@ -195,3 +195,83 @@ void zTensorTranspose( const int *perm, const int dim,
    plan->setConjA(conjA);
    plan->execute();
 }
+
+void sTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+                 const float alpha, const float *A, const int *sizeA, const int *outerSizeA, 
+                 const float beta,        float *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<float> >(sizeA, perm, outerSizeA, outerSizeB, dim, A, alpha, B, beta, hptt::MEASURE, numThreads, nullptr, useRowMajor));
+   plan->execute();
+}
+
+void dTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+                 const double alpha, const double *A, const int *sizeA, const int *outerSizeA, 
+                 const double beta,        double *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<double> >(sizeA, perm, outerSizeA, outerSizeB, dim, A, alpha, B, beta, hptt::MEASURE, numThreads, nullptr, useRowMajor));
+   plan->execute();
+}
+
+void cTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+                 const float _Complex alpha, bool conjA, const float _Complex *A, const int *sizeA, const int *outerSizeA, 
+                 const float _Complex beta,        float _Complex *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<hptt::FloatComplex> >(sizeA, perm, outerSizeA, outerSizeB, dim, 
+                         (const hptt::FloatComplex*) A, (hptt::FloatComplex) alpha, (hptt::FloatComplex*) B, (hptt::FloatComplex) beta, hptt::MEASURE, numThreads, nullptr, useRowMajor));
+   plan->setConjA(conjA);
+   plan->execute();
+}
+
+void zTensorTransposeAutoTuneMeasure( const int *perm, const int dim,
+                 const double _Complex alpha, bool conjA, const double _Complex *A, const int *sizeA, const int *outerSizeA, 
+                 const double _Complex beta,        double _Complex *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<hptt::DoubleComplex> >(sizeA, perm, outerSizeA, outerSizeB, dim, 
+                         (const hptt::DoubleComplex*) A, (hptt::DoubleComplex) alpha, (hptt::DoubleComplex*) B, (hptt::DoubleComplex) beta, hptt::MEASURE, numThreads, nullptr, useRowMajor));
+   plan->setConjA(conjA);
+   plan->execute();
+}
+
+void sTensorTransposeAutoTunePatient( const int *perm, const int dim,
+                 const float alpha, const float *A, const int *sizeA, const int *outerSizeA, 
+                 const float beta,        float *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<float> >(sizeA, perm, outerSizeA, outerSizeB, dim, A, alpha, B, beta, hptt::PATIENT, numThreads, nullptr, useRowMajor));
+   plan->execute();
+}
+
+void dTensorTransposeAutoTunePatient( const int *perm, const int dim,
+                 const double alpha, const double *A, const int *sizeA, const int *outerSizeA, 
+                 const double beta,        double *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<double> >(sizeA, perm, outerSizeA, outerSizeB, dim, A, alpha, B, beta, hptt::PATIENT, numThreads, nullptr, useRowMajor));
+   plan->execute();
+}
+
+void cTensorTransposeAutoTunePatient( const int *perm, const int dim,
+                 const float _Complex alpha, bool conjA, const float _Complex *A, const int *sizeA, const int *outerSizeA, 
+                 const float _Complex beta,        float _Complex *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<hptt::FloatComplex> >(sizeA, perm, outerSizeA, outerSizeB, dim, 
+                         (const hptt::FloatComplex*) A, (hptt::FloatComplex) alpha, (hptt::FloatComplex*) B, (hptt::FloatComplex) beta, hptt::PATIENT, numThreads, nullptr, useRowMajor));
+   plan->setConjA(conjA);
+   plan->execute();
+}
+
+void zTensorTransposeAutoTunePatient( const int *perm, const int dim,
+                 const double _Complex alpha, bool conjA, const double _Complex *A, const int *sizeA, const int *outerSizeA, 
+                 const double _Complex beta,        double _Complex *B,                   const int *outerSizeB, 
+                 const int numThreads, const int useRowMajor)
+{
+   auto plan(std::make_shared<hptt::Transpose<hptt::DoubleComplex> >(sizeA, perm, outerSizeA, outerSizeB, dim, 
+                         (const hptt::DoubleComplex*) A, (hptt::DoubleComplex) alpha, (hptt::DoubleComplex*) B, (hptt::DoubleComplex) beta, hptt::PATIENT, numThreads, nullptr, useRowMajor));
+   plan->setConjA(conjA);
+   plan->execute();
+}
